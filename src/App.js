@@ -2,13 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Página</h1>
+export default class App extends React.Component {
 
-    </div>
-  );
+  state = {
+    numeroProdutos: 200
+
+  }
+
+  render(){
+    return (
+
+
+
+      <div className="App">
+        <div className="filtro">Filtro</div>
+        <div className="meio">Meio</div> 
+        <div classname="carrinho">Carrinho</div> 
+
+
+
+
+      </div>
+    );
+  }
 }
 
-export default App;
