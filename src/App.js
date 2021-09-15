@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Carrinho from './Components/Carrinho/Carrinho';
 
 export default class App extends React.Component {
 
@@ -13,11 +13,12 @@ export default class App extends React.Component {
     return (
 
 
-
       <div className="App">
+        
         <div className="filtro">Filtro</div>
-        <div className="meio">Meio</div> 
-        <div classname="carrinho">Carrinho</div> 
+        <div className="meio">Meio</div>
+          
+        <Carrinho />
 
 
 
