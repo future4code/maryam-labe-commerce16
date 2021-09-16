@@ -1,5 +1,4 @@
 
-import logo from './logo.svg';
 import React from 'react';
 import styled from 'styled-components';
 import './App.css';
@@ -46,7 +45,10 @@ export default class App extends React.Component {
   render() {
     return (
 
-
+      <div className="App">
+        <Filtro />
+        <Produtos produtos={this.state.produtos}/>
+        <Carrinho />
 
 
 

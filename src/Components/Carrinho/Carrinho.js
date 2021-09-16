@@ -44,7 +44,7 @@ export default class Carrinho extends React.Component {
             carrinho: temp
         })
 
-        if(temp[index].quantidade == 0) {
+        if(temp[index].quantidade === 0) {
 
 
         }
