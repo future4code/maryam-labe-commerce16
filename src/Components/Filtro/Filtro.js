@@ -23,7 +23,6 @@ align-items: flex-start;
 
 `
 
-
 export default class Filtro extends React.Component {
     render() {
         return (
@@ -38,11 +37,6 @@ export default class Filtro extends React.Component {
                         onChange={this.props.onChangeFiltroMinimo}
                         type="number"
 
-                    // onChangeFiltroMinimo = (event) => { // para colocar no App.js
-                    //     this.setState ({inputValorMinimo: event.target.value})
-                    // console.log(this.state.inputValorMinimo)
-                    // }
-
                     />
                 </ DivFiltroCadaInput>
 
@@ -53,11 +47,6 @@ export default class Filtro extends React.Component {
                         placeholder={"Valor Máximo"}
                         onChange={this.props.onChangeFiltroMaximo}
                         type="number"
-
-                    //     onChangeFiltroMaximo= (event) => { // para colocar no App.js
-                    //     this.setState({ inputValorMaximo: event.target.value })
-                    // console.log(this.state.inputValorMaximo)
-                    // }
 
                     />
                 </DivFiltroCadaInput>
@@ -70,11 +59,6 @@ export default class Filtro extends React.Component {
                         onChange={this.props.onChangeFiltroNome}
                         type="text"
 
-                    // onChangeFiltroNome= (event) => { // para colocar no App.js
-                    // this.setState({ inputBuscaPorNome: event.target.value })
-                    // console.log(this.state.inputBuscaPorNome)
-                    // }
-
                     />
                 </DivFiltroCadaInput>
 
@@ -84,40 +68,7 @@ export default class Filtro extends React.Component {
     }
 }
 
-// state = { // para colocar no App.js
-//     inputValorMinimo: "",
-//     inputValorMaximo: "",
-//     inputBuscaPorNome: "",
-// }
 
 
-// DESDE AQUI VAI NO PRODUTOS.JS
-// const listaFiltradaPorValores = listaDeProdutos.filter((item, index, array) => { 
 
-//     if (item.preco >= this.props.inputValorMinimo) {
-//         return true
-//     } else {
-//         return false
-//     }
-
-
-// }).filter((item, index, array) => {
-
-//     if (item.preco <= this.props.inputValorMaximo) {
-//         return true
-//     } else {
-//         return false
-//     }
-
-// })
-
-// const listaFiltradaPorNome = listaDeProdutos.filter((item, index, array) => {
-
-//     if (item.nome.toLowerCase() === this.props.inputBuscaPorNome.toLowerCase()) {
-//         return true
-//     } else {
-//         return false
-//     }
-
-// }) // ATÉ AQUI VAI NO PRODUTOS.JS
 
