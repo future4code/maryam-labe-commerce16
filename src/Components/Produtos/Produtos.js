@@ -56,10 +56,10 @@ export default class Produtos extends React.Component {
         const novaListaDeProdutos = listaDeProdutos.map((item, index, array) => {
             return (
                 <Cards key={item.id}>
-                    <img src={item.imagemProduto} />
+                    <img src={item.imagemProduto} alt="" />
                     <p>{item.nome}</p>
                     <p>R$ {item.preco}</p>
-                    <button>Adicionar ao Carrinho</button>
+                    <button produto={item.id}>Adicionar ao Carrinho</button>
 
                 </Cards>
             )
