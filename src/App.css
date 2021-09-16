@@ -24,8 +24,13 @@
 
 .carrinho{
   border: 1pt solid black;
-  min-height: 100vh;
-  width: 20vw;
+min-height: 100vh;
+width: 20vw;
+margin: 16px;
+padding: 8px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 
 
 }
