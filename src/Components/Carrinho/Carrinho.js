@@ -71,7 +71,8 @@ export default class Carrinho extends React.Component {
     };
         
 
-
+/*
+alo*/
     render(){
 
         return (
