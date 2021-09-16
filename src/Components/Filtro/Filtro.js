@@ -30,34 +30,42 @@ export default class Filtro extends React.Component {
                 <h3>Filtros</h3>
 
                 <DivFiltroCadaInput>
-                    <label>Valor Mínimo:</label>
+                    <label
+                        for="min"
+                    >Valor Mínimo:</label>
                     <input
                         value={this.props.inputValorMinimo}
                         placeholder={"Valor Mínimo"}
                         onChange={this.props.onChangeFiltroMinimo}
                         type="number"
+                        name="min"
 
                     />
                 </ DivFiltroCadaInput>
 
                 <DivFiltroCadaInput>
-                    <label>Valor Máximo:</label>
+                    <label
+                        for="max"
+                    >Valor Máximo:</label>
                     <input
                         value={this.props.inputValorMaximo}
                         placeholder={"Valor Máximo"}
                         onChange={this.props.onChangeFiltroMaximo}
                         type="number"
-
+                        name="max"
                     />
                 </DivFiltroCadaInput>
 
                 <DivFiltroCadaInput>
-                    <label>Busca por nome:</label>
+                    <label
+                        for="texto"
+                    >Busca por nome:</label>
                     <input
                         value={this.props.inputBuscaPorNome}
-                        placeholder={"Digite uma palavra"}
+                        placeholder={"Pesquisa"}
                         onChange={this.props.onChangeFiltroNome}
                         type="text"
+                        name="texto"
 
                     />
                 </DivFiltroCadaInput>
@@ -67,8 +75,4 @@ export default class Filtro extends React.Component {
         )
     }
 }
-
-
-
-
 

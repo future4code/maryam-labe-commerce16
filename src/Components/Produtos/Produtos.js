@@ -9,58 +9,74 @@ const DivProdutos = styled.div`
     width:100%;
     row-gap: 10px;
     column-gap: 10px;
-    margin: 16px 0;
+    margin-top: 16px;
+
 `
 
 const Cards = styled.div`
 display: flex;
 flex-direction: column;
 border: 1px solid black;
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
 `
 
 
 export default class Produtos extends React.Component {
     render() {
 
-        const listaDeProdutos = this.props.produtos
+        let listaDeProdutos = this.props.produtos
+        let inputBuscaPorNome = this.props.inputBuscaPorNome
+        let inputValorMinimo = this.props.inputValorMinimo
+        let inputValorMaximo = this.props.inputValorMaximo
 
-        // const listaFiltradaPorValores = this.props.listaDeProdutos.filter((item, index, array) => {
+        if (inputValorMinimo !== "") {
+            listaDeProdutos = listaDeProdutos.filter((item, index, array) => {
 
-        //     if (item.preco >= this.props.inputValorMinimo) {
-        //         return true
-        //     } else {
-        //         return false
-        //     }
+                if (item.preco >= this.props.inputValorMinimo) {
+                    return true
+                } else {
+                    return false
+                }
 
 
-        // }).filter((item, index, array) => {
+            })
+        }
 
-        //     if (item.preco <= this.props.inputValorMaximo) {
-        //         return true
-        //     } else {
-        //         return false
-        //     }
+        if (inputValorMaximo !== "") {
+            listaDeProdutos = listaDeProdutos.filter((item, index, array) => {
 
-        // })
+                if (item.preco <= this.props.inputValorMaximo) {
+                    return true
+                } else {
+                    return false
+                }
 
-        // const listaFiltradaPorNome = this.props.listaDeProdutos.filter((item, index, array) => {
+            })
+        }
 
-        //     if (item.nome.toLowerCase() === this.props.inputBuscaPorNome.toLowerCase()) {
-        //         return true
-        //     } else {
-        //         return false
-        //     }
+        if (inputBuscaPorNome !== "") {
+            listaDeProdutos = listaDeProdutos.filter((item, index, array) => {
 
-        // })
+                if (item.nome.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(inputBuscaPorNome.toLowerCase().trim()) === true) {
+                    // if (item.nome.toLowerCase() === inputBuscaPorNome.toLowerCase()) {
+                    return true
+                } else {
+                    return false
+                }
 
-        const novaListaDeProdutos = listaDeProdutos.map((item, index, array) => {
+            })
+        }
+
+        listaDeProdutos = listaDeProdutos.map((item, index, array) => {
             return (
                 <Cards key={item.id}>
-                    <img src={item.imagemProduto} alt="" />
+                    <img src={item.imagemProduto} />
                     <p>{item.nome}</p>
                     <p>R$ {item.preco}</p>
-                    <button produto={item.id} onClick={() => this.props.altera(item.id)}>Adicionar ao Carrinho</button>
-
+                    <button>Adicionar ao Carrinho</button>
                 </Cards>
             )
         })
@@ -68,7 +84,7 @@ export default class Produtos extends React.Component {
         return (
             <div>
                 <DivProdutos>
-                    {novaListaDeProdutos}
+                    {listaDeProdutos}
                 </DivProdutos>
             </div>
         )
