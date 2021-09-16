@@ -59,7 +59,7 @@ export default class Produtos extends React.Component {
                     <img src={item.imagemProduto} alt="" />
                     <p>{item.nome}</p>
                     <p>R$ {item.preco}</p>
-                    <button produto={item.id}>Adicionar ao Carrinho</button>
+                    <button produto={item.id} onClick={() => this.props.altera(item.id)}>Adicionar ao Carrinho</button>
 
                 </Cards>
             )

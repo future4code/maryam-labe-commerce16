@@ -1,62 +1,29 @@
 import React from 'react';
-import Botao from './Botao';
+
+
 
 export default class Carrinho extends React.Component {
 
-    state = {
-        carrinho : [
-            {
-                id: 0,
-                nome: 'Produto 1',
-                preco: 100,
-                quantidade: 5
-            },
-            {
-                id: 1,
-                nome: 'Produto 2',
-                preco: 20,
-                quantidade: 3
-            },
-        ],
 
 
-    }
+    calculaTotal = (cartFilho) => {
+        {console.log(cartFilho)}
+
+        let preco = 0
+
+        for (let i=0; i<cartFilho.length; i++) {
+            preco = preco + (cartFilho[i].preco * cartFilho[i].quantidade)
+        } 
 
 
-    onClickAdicionar = (index) => {
-
-        let temp = this.state.carrinho
-
-        temp[index].quantidade = temp[index].quantidade + 1
-        this.setState({
-            carrinho: temp
-        })
-
-    }
+        return <h5>R${preco}</h5>
 
 
-    onClickRemover = (index) => {
-        let temp = this.state.carrinho
+    }    
 
-        temp[index].quantidade = temp[index].quantidade - 1
+    renderizaCarrinho = (cartFilho) => {
 
-        this.setState({
-            carrinho: temp
-        })
-
-        if(temp[index].quantidade === 0) {
-
-
-        }
-
-
-
-    };
-    
-
-    renderizaCarrinho = () => {
-
-        let temp = this.state.carrinho.filter(   
+        let temp = cartFilho.filter(   
             (item) => {
                 return item.quantidade > 0
             }                            
@@ -64,37 +31,34 @@ export default class Carrinho extends React.Component {
 
         return temp.map(
             (item) => {
-            return <li>{item.quantidade} x {item.nome}                     <button onClick={() => this.onClickRemover(item.id)}>x</button>
+            return <li>{item.quantidade} x {item.nome}                     <button onClick={() => this.props.remove(item.id)}>x</button>
             </li>;
         });
         
     };
         
 
-/*
-alo*/
+
     render(){
+
+        let cartFilho = this.props.cart
+
 
         return (
             <div className="ShoppingCart">
-
                 <h2>Carrinho:</h2>
 
-                {this.state.carrinho.length > 0 ? (
+                {cartFilho.length > 0 ? (
                     <ul>
-                        {this.renderizaCarrinho()}
+                        {this.renderizaCarrinho(cartFilho)}
                     </ul>
                 ) : (
                 <p>Carrinho vazio</p>
                 )}
 
+                <h3>Total:</h3> {this.calculaTotal(cartFilho)}
 
 
-                <div>
-                    <button onClick={() => this.onClickAdicionar(0)}>Adicionar Produto 1</button>
-                    <button onClick={() => this.onClickAdicionar(1)}>Adicionar Produto 2</button>
-
-                </div>
 
 
             </div>
