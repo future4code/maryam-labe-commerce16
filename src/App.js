@@ -1,9 +1,12 @@
+
 import logo from './logo.svg';
 import React from 'react';
 import styled from 'styled-components';
-import Filtro from './Components/Filtro/Filtro';
 import './App.css';
 import Produtos from './Components/Produtos/Produtos';
+import Carrinho from './Components/Carrinho/Carrinho';
+import Filtro from './Components/Filtro/Filtro';
+
 
 
 
@@ -43,20 +46,6 @@ export default class App extends React.Component {
   render() {
     return (
 
-
-
-      <div className="App">
-        <Filtro
-          produtos={this.state.produtos}
-
-        />
-        <Produtos
-          produtos={this.state.produtos}
-          // inputValorMinimo={this.state.inputValorMinimo}
-          // inputValorMaximo={this.state.inputValorMaximo}
-          // inputBuscaPorNome={this.state.inputBuscaPorNome}
-        />
-        <div className="carrinho">Carrinho</div>
 
 
 
