@@ -25,7 +25,7 @@ justify-content: center;
 export default class Carrinho extends React.Component {
 
     calculaTotal = (cartFilho) => {
-        { console.log(cartFilho) }
+       /* { console.log(cartFilho) }*/
 
         let preco = 0
 

@@ -27,67 +27,25 @@ export default class App extends React.Component {
     inputBuscaPorNome: "",
     seletorPreco: "crescente",
 
-    carrinho: [
-      {
-        id: 1,
-        quantidade: 5,
-        nome: "Produto 1",
-        preco: 100.00
-      },
-      {
-        id: 2,
-        quantidade: 3
-      },
-
-      {
-        id: 3,
-        quantidade: 0
-       },
-
-      {
-        id: 4,
-        quantidade: 0
-      },
-
-      {
-        id: 5,
-        quantidade: 0
-      },
-
-      {
-        id: 6,
-        quantidade: 0
-      },
-      {
-        id: 7,
-        quantidade: 0
-      },
-
-      {
-        id: 8,
-        quantidade: 0
-      },
-    ],
-
   }
 
   onChangeFiltroMaximo = (event) => {
     this.setState({ inputValorMaximo: event.target.value })
-    console.log(this.state.inputValorMaximo)
+    /*console.log(this.state.inputValorMaximo)*/
   }
 
   onChangeFiltroMinimo = (event) => {
     this.setState({ inputValorMinimo: event.target.value })
-    console.log(this.state.inputValorMinimo)
+    /*console.log(this.state.inputValorMinimo)*/
   }
 
   onChangeFiltroNome = (event) => {
     this.setState({ inputBuscaPorNome: event.target.value })
-    console.log(this.state.inputBuscaPorNome)
+    /*console.log(this.state.inputBuscaPorNome)*/
   }
 
   onClickLimparFiltros = () => {
-    console.log(this.state.inputBuscaPorNome)
+   /* console.log(this.state.inputBuscaPorNome)*/
     this.setState({
       inputValorMinimo: "",
       inputValorMaximo: "",
@@ -95,19 +53,36 @@ export default class App extends React.Component {
     })
   }
 
-  onClickAdicionar = (index) => {
+  onClickAdicionar = (indexVelho) => {
+
     let temp = this.state.produtos
-    temp[index - 1].quantidade = temp[index - 1].quantidade + 1
+    let index = indexVelho 
+
+
+    for (let j = 0; j <8; j++ ) {
+      if (temp[j].id === indexVelho) { index = j}
+    }
+ 
+    {console.log(indexVelho, index)}
+
+
+    temp[index ].quantidade = temp[index ].quantidade + 1
 
     this.setState({
       produtos: temp
     })
   };
 
-  onClickRemover = (index) => {
-    let temp = this.state.produtos
-    temp[index - 1].quantidade = temp[index - 1].quantidade - 1
+  onClickRemover = (indexVelho) => {
 
+    let temp = this.state.produtos
+    let index = indexVelho 
+
+    for (let j = 0; j <8; j++ ) {
+      if (temp[j].id === indexVelho) { index = j}
+    }
+
+    temp[index ].quantidade = temp[index ].quantidade - 1
     this.setState({
       produtos: temp
     })
@@ -145,6 +120,8 @@ export default class App extends React.Component {
           onChangeSeletor={this.onChangeSeletor} // criado comando para passar por props em Produtos.js
           altera={this.onClickAdicionar}
         />
+
+        {console.log( this.state.produtos ) }
 
         <Carrinho cart={cartTemp} altera={this.onClickAdicionar} remove={this.onClickRemover} />
 
