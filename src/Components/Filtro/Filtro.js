@@ -24,7 +24,9 @@ padding: 8px;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-
+button:hover {
+    background-color: lightgray;
+}
 `
 
 export default class Filtro extends React.Component {
@@ -35,8 +37,8 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-                    
-                    htmlFor="min"
+
+                        htmlFor="min"
                     >Valor Mínimo:</label>
                     <input
                         value={this.props.inputValorMinimo}
@@ -50,7 +52,7 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-                    htmlFor="max"
+                        htmlFor="max"
                     >Valor Máximo:</label>
                     <input
                         value={this.props.inputValorMaximo}
@@ -63,7 +65,7 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-                    htmlFor="texto"
+                        htmlFor="texto"
                     >Busca por nome:</label>
                     <input
                         value={this.props.inputBuscaPorNome}

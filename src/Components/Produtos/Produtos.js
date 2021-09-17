@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 
-
 const DivProdutos = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -12,14 +11,17 @@ const DivProdutos = styled.div`
     margin-top: 16px;
 
 `
-
 const Cards = styled.div`
 display: flex;
 flex-direction: column;
 border: 1px solid black;
+box-shadow: 2px 2px 5px darkgray;
 img {
     max-width: 200px;
     max-height: 200px;
+}
+button:hover {
+    background-color: lightgray;
 }
 `
 const BoxSuperior = styled.div`
@@ -28,7 +30,6 @@ align-items: center;
 justify-content: space-between;
 margin: 5px 15px;
 `
-
 
 export default class Produtos extends React.Component {
     render() {
@@ -47,8 +48,6 @@ export default class Produtos extends React.Component {
                 } else {
                     return false
                 }
-
-
             })
         }
 
@@ -60,7 +59,6 @@ export default class Produtos extends React.Component {
                 } else {
                     return false
                 }
-
             })
         }
 
@@ -72,7 +70,6 @@ export default class Produtos extends React.Component {
                 } else {
                     return false
                 }
-
             })
         }
 
@@ -87,37 +84,18 @@ export default class Produtos extends React.Component {
             })
         }
 
-
-
-        // let ordenaCrescente = (a,b) => {
-        //     return a.preco - b.preco;
-        // }
-        // let ordenaDecrescente = (a, b) => {
-        //     return b.preco - a.preco;
-        // }
-
-        // if (this.props.seletorPreco === "crescente") {
-        //     return listaDeProdutos = listaDeProdutos.sort(ordenaCrescente)
-        // } else {
-        //     return listaDeProdutos = listaDeProdutos.sort(ordenaDecrescente)
-        // }
-
-
         listaDeProdutos = listaDeProdutos.map((item, index, array) => {
             return (
                 <Cards key={item.id}>
                     <img src={item.imagemProduto} alt={item.nome} />
                     <p>{item.nome}</p>
                     <p>R$ {item.preco}</p>
-                    <button>Adicionar ao Carrinho</button>
+                    <button produto={item.id} onClick={() => this.props.altera(item.id)}>Adicionar ao Carrinho</button>
                 </Cards>
             )
         })
 
-
-
         quantidadeListaDeProdutos = listaDeProdutos.length
-
 
         return (
             <div>
