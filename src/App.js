@@ -42,7 +42,7 @@ export default class App extends React.Component {
       {
         id: 3,
         quantidade: 0
-      },
+       },
 
       {
         id: 4,
@@ -151,6 +151,3 @@ export default class App extends React.Component {
       </div>)
   }
 }
-
-
-

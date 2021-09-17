@@ -9,7 +9,7 @@ const DivProdutos = styled.div`
     row-gap: 10px;
     column-gap: 10px;
     margin-top: 16px;
-
+    
 `
 const Cards = styled.div`
 display: flex;
