@@ -8,27 +8,22 @@ const DivProdutos = styled.div`
     width:100%;
     row-gap: 10px;
     column-gap: 10px;
-    margin-top: 16px;
-<<<<<<< HEAD
-
-=======
+    margin-top: 8px;
     
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
+    /* background-color: #fef8f2; */
+     /* background-color: #d5dadf; */
+    /* background-color: #abbacc; */
+    
 `
 const Cards = styled.div`
 display: flex;
 flex-direction: column;
 border: 1px solid black;
-<<<<<<< HEAD
-=======
 box-shadow: 2px 2px 5px darkgray;
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
 img {
     max-width: 200px;
     max-height: 200px;
 }
-<<<<<<< HEAD
-=======
 button:hover {
     background-color: lightgray;
 }
@@ -37,8 +32,16 @@ const BoxSuperior = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-margin: 5px 15px;
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
+margin-left: 30px;
+margin-right: 30px;
+height: 1.5em;
+`
+
+const Prod = styled.div`
+display:flex;
+flex-direction: column;
+min-height: 100vh;
+margin-top: 16px;
 `
 
 export default class Produtos extends React.Component {
@@ -48,10 +51,7 @@ export default class Produtos extends React.Component {
         let inputBuscaPorNome = this.props.inputBuscaPorNome
         let inputValorMinimo = this.props.inputValorMinimo
         let inputValorMaximo = this.props.inputValorMaximo
-<<<<<<< HEAD
-=======
         let quantidadeListaDeProdutos = this.listaDeProdutos
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
 
         if (inputValorMinimo !== "") {
             listaDeProdutos = listaDeProdutos.filter((item, index, array) => {
@@ -61,11 +61,6 @@ export default class Produtos extends React.Component {
                 } else {
                     return false
                 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
             })
         }
 
@@ -77,10 +72,6 @@ export default class Produtos extends React.Component {
                 } else {
                     return false
                 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
             })
         }
 
@@ -88,17 +79,10 @@ export default class Produtos extends React.Component {
             listaDeProdutos = listaDeProdutos.filter((item, index, array) => {
 
                 if (item.nome.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(inputBuscaPorNome.toLowerCase().trim()) === true) {
-<<<<<<< HEAD
-                    // if (item.nome.toLowerCase() === inputBuscaPorNome.toLowerCase()) {
-=======
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
                     return true
                 } else {
                     return false
                 }
-<<<<<<< HEAD
-
-=======
             })
         }
 
@@ -110,24 +94,16 @@ export default class Produtos extends React.Component {
         } else if (this.props.seletorPreco === "decrescente") {
             listaDeProdutos = listaDeProdutos.sort((a, b) => {
                 return b.preco - a.preco
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
             })
         }
 
         listaDeProdutos = listaDeProdutos.map((item, index, array) => {
             return (
                 <Cards key={item.id}>
-<<<<<<< HEAD
-                    <img src={item.imagemProduto} />
-                    <p>{item.nome}</p>
-                    <p>R$ {item.preco}</p>
-                    <button>Adicionar ao Carrinho</button>
-=======
                     <img src={item.imagemProduto} alt={item.nome} />
                     <p>{item.nome}</p>
                     <p>R$ {item.preco}</p>
                     <button produto={item.id} onClick={() => this.props.altera(item.id)}>Adicionar ao Carrinho</button>
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
                 </Cards>
             )
         })
@@ -135,7 +111,7 @@ export default class Produtos extends React.Component {
         quantidadeListaDeProdutos = listaDeProdutos.length
 
         return (
-            <div>
+            <Prod>
                 <BoxSuperior>
                     <p>Quantidade de produtos: {quantidadeListaDeProdutos}</p>
 
@@ -149,11 +125,10 @@ export default class Produtos extends React.Component {
                     </select>
                 </BoxSuperior>
 
-                <div></div>
                 <DivProdutos>
                     {listaDeProdutos}
                 </DivProdutos>
-            </div>
+            </Prod>
         )
     }
 }

@@ -24,6 +24,8 @@ padding: 8px;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
+background-color: #d9e4f1; 
+box-shadow: 2px 2px 5px darkgray;
 button:hover {
     background-color: lightgray;
 }
@@ -37,12 +39,8 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-<<<<<<< HEAD
-                        for="min"
-=======
 
                         htmlFor="min"
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
                     >Valor Mínimo:</label>
                     <input
                         value={this.props.inputValorMinimo}
@@ -56,11 +54,7 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-<<<<<<< HEAD
-                        for="max"
-=======
                         htmlFor="max"
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
                     >Valor Máximo:</label>
                     <input
                         value={this.props.inputValorMaximo}
@@ -73,11 +67,7 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-<<<<<<< HEAD
-                        for="texto"
-=======
                         htmlFor="texto"
->>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
                     >Busca por nome:</label>
                     <input
                         value={this.props.inputBuscaPorNome}

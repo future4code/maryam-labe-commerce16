@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   display:flex;
-
+  background-color: #ecf0f5; 
 }
 
 .div{
@@ -12,14 +12,12 @@
   border: 1pt solid black;
   min-height: 100vh;
   width: 20vw;
-
-
 }
+
 .meio{
   border: 1pt solid black;
   min-height: 100vh;
   width: 60vw;
-
 }
 
 .carrinho{
@@ -31,8 +29,6 @@ padding: 8px;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-
-
 }
 
 
