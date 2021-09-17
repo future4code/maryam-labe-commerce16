@@ -22,6 +22,12 @@ img {
     max-height: 200px;
 }
 `
+const BoxSuperior = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 5px 15px;
+`
 
 
 export default class Produtos extends React.Component {
@@ -31,6 +37,7 @@ export default class Produtos extends React.Component {
         let inputBuscaPorNome = this.props.inputBuscaPorNome
         let inputValorMinimo = this.props.inputValorMinimo
         let inputValorMaximo = this.props.inputValorMaximo
+        let quantidadeListaDeProdutos = this.listaDeProdutos
 
         if (inputValorMinimo !== "") {
             listaDeProdutos = listaDeProdutos.filter((item, index, array) => {
@@ -61,7 +68,6 @@ export default class Produtos extends React.Component {
             listaDeProdutos = listaDeProdutos.filter((item, index, array) => {
 
                 if (item.nome.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(inputBuscaPorNome.toLowerCase().trim()) === true) {
-                    // if (item.nome.toLowerCase() === inputBuscaPorNome.toLowerCase()) {
                     return true
                 } else {
                     return false
@@ -70,10 +76,37 @@ export default class Produtos extends React.Component {
             })
         }
 
+        if (this.props.seletorPreco === "crescente") {
+
+            listaDeProdutos = listaDeProdutos.sort((a, b) => {
+                return a.preco - b.preco
+            })
+        } else if (this.props.seletorPreco === "decrescente") {
+            listaDeProdutos = listaDeProdutos.sort((a, b) => {
+                return b.preco - a.preco
+            })
+        }
+
+
+
+        // let ordenaCrescente = (a,b) => {
+        //     return a.preco - b.preco;
+        // }
+        // let ordenaDecrescente = (a, b) => {
+        //     return b.preco - a.preco;
+        // }
+
+        // if (this.props.seletorPreco === "crescente") {
+        //     return listaDeProdutos = listaDeProdutos.sort(ordenaCrescente)
+        // } else {
+        //     return listaDeProdutos = listaDeProdutos.sort(ordenaDecrescente)
+        // }
+
+
         listaDeProdutos = listaDeProdutos.map((item, index, array) => {
             return (
                 <Cards key={item.id}>
-                    <img src={item.imagemProduto} alt={item.nome}/>
+                    <img src={item.imagemProduto} alt={item.nome} />
                     <p>{item.nome}</p>
                     <p>R$ {item.preco}</p>
                     <button>Adicionar ao Carrinho</button>
@@ -81,8 +114,27 @@ export default class Produtos extends React.Component {
             )
         })
 
+
+
+        quantidadeListaDeProdutos = listaDeProdutos.length
+
+
         return (
             <div>
+                <BoxSuperior>
+                    <p>Quantidade de produtos: {quantidadeListaDeProdutos}</p>
+
+                    <select
+                        value={this.props.seletorPreco}
+                        onChange={this.props.onChangeSeletor}
+                    >
+                        <option value="crescente">Preço Crescente</option>
+                        <option value="decrescente">Preço Decrescente</option>
+
+                    </select>
+                </BoxSuperior>
+
+                <div></div>
                 <DivProdutos>
                     {listaDeProdutos}
                 </DivProdutos>
