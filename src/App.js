@@ -85,6 +85,15 @@ export default class App extends React.Component {
     console.log(this.state.inputBuscaPorNome)
   }
 
+  onClickLimparFiltros = () => {
+    console.log(this.state.inputBuscaPorNome)
+    this.setState({
+      inputValorMinimo: "",
+      inputValorMaximo: "",
+      inputBuscaPorNome: "",
+    })
+  }
+
   onClickAdicionar = (index) => {
     let temp = this.state.produtos
     temp[index - 1].quantidade = temp[index - 1].quantidade + 1
@@ -107,13 +116,13 @@ export default class App extends React.Component {
     return (<div className="App">
 
       <Filtro
-        // produtos={this.state.produtos}
         inputBuscaPorNome={this.state.inputBuscaPorNome} // criado comando para passar por props em Filtro.js
         inputValorMinimo={this.state.inputValorMinimo} // criado comando para passar por props em Filtro.js
         inputValorMaximo={this.state.inputValorMaximo} // criado comando para passar por props em Filtro.js
         onChangeFiltroNome={this.onChangeFiltroNome} // criado comando para passar por props em Filtro.js
         onChangeFiltroMaximo={this.onChangeFiltroMaximo} // criado comando para passar por props em Filtro.js
         onChangeFiltroMinimo={this.onChangeFiltroMinimo} // criado comando para passar por props em Filtro.js
+        onClickLimparFiltros={this.onClickLimparFiltros} // criado comando para passar por props em Filtro.js
 
       />
       <Produtos
@@ -122,6 +131,9 @@ export default class App extends React.Component {
         inputValorMinimo={this.state.inputValorMinimo} // criado comando para passar por props em Produtos.js
         inputValorMaximo={this.state.inputValorMaximo} // criado comando para passar por props em Produtos.js
       />
+
+      <Carrinho cart={cartTemp} altera={this.onClickAdicionar} remove={this.onClickRemover} />
+
       <div className="carrinho">Carrinho</div>
     </div>)
   }

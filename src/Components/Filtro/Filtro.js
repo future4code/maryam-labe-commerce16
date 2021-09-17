@@ -10,6 +10,10 @@ input {
     max-width: 15vw;
     cursor: text;
 }
+button {
+    cursor:pointer;
+    margin-top:8px;
+}
 `
 const DivFiltro = styled.div`
 border: 1pt solid black;
@@ -31,7 +35,8 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-                    for="min"
+                    
+                    htmlFor="min"
                     >Valor Mínimo:</label>
                     <input
                         value={this.props.inputValorMinimo}
@@ -45,7 +50,7 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-                    for="max"
+                    htmlFor="max"
                     >Valor Máximo:</label>
                     <input
                         value={this.props.inputValorMaximo}
@@ -58,7 +63,7 @@ export default class Filtro extends React.Component {
 
                 <DivFiltroCadaInput>
                     <label
-                    for="texto"
+                    htmlFor="texto"
                     >Busca por nome:</label>
                     <input
                         value={this.props.inputBuscaPorNome}
@@ -68,6 +73,11 @@ export default class Filtro extends React.Component {
                         name="texto"
 
                     />
+                </DivFiltroCadaInput>
+
+                <DivFiltroCadaInput>
+
+                    <button onClick={this.props.onClickLimparFiltros}>Limpar filtros</button>
                 </DivFiltroCadaInput>
 
             </DivFiltro>
