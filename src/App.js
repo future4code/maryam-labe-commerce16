@@ -25,6 +25,7 @@ export default class App extends React.Component {
     inputValorMinimo: "",
     inputValorMaximo: "",
     inputBuscaPorNome: "",
+<<<<<<< HEAD
 
     carrinho: [
       {
@@ -67,41 +68,82 @@ export default class App extends React.Component {
         quantidade: 0
       },
     ],
+=======
+    seletorPreco: "crescente",
+>>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
 
   }
 
   onChangeFiltroMaximo = (event) => {
     this.setState({ inputValorMaximo: event.target.value })
-    console.log(this.state.inputValorMaximo)
+    /*console.log(this.state.inputValorMaximo)*/
   }
 
   onChangeFiltroMinimo = (event) => {
     this.setState({ inputValorMinimo: event.target.value })
-    console.log(this.state.inputValorMinimo)
+    /*console.log(this.state.inputValorMinimo)*/
   }
 
   onChangeFiltroNome = (event) => {
     this.setState({ inputBuscaPorNome: event.target.value })
-    console.log(this.state.inputBuscaPorNome)
+    /*console.log(this.state.inputBuscaPorNome)*/
   }
 
-  onClickAdicionar = (index) => {
+  onClickLimparFiltros = () => {
+   /* console.log(this.state.inputBuscaPorNome)*/
+    this.setState({
+      inputValorMinimo: "",
+      inputValorMaximo: "",
+      inputBuscaPorNome: "",
+    })
+  }
+
+  onClickAdicionar = (indexVelho) => {
+
     let temp = this.state.produtos
+<<<<<<< HEAD
     temp[index - 1].quantidade = temp[index - 1].quantidade + 1
+=======
+    let index = indexVelho 
+
+
+    for (let j = 0; j <8; j++ ) {
+      if (temp[j].id === indexVelho) { index = j}
+    }
+ 
+    {console.log(indexVelho, index)}
+
+
+    temp[index ].quantidade = temp[index ].quantidade + 1
+>>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
 
     this.setState({
       produtos: temp
     })
   };
 
+<<<<<<< HEAD
   onClickRemover = (index) => {
     let temp = this.state.produtos
     temp[index - 1].quantidade = temp[index - 1].quantidade - 1
 
+=======
+  onClickRemover = (indexVelho) => {
+
+    let temp = this.state.produtos
+    let index = indexVelho 
+
+    for (let j = 0; j <8; j++ ) {
+      if (temp[j].id === indexVelho) { index = j}
+    }
+
+    temp[index ].quantidade = temp[index ].quantidade - 1
+>>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
     this.setState({
       produtos: temp
     })
   };
+<<<<<<< HEAD
 
   render() {
     return (<div className="App">
@@ -124,5 +166,46 @@ export default class App extends React.Component {
       />
       <div className="carrinho">Carrinho</div>
     </div>)
+=======
+
+  onChangeSeletor = (event) => {
+    this.setState({ seletorPreco: event.target.value })
+  }
+
+  render() {
+
+    let cartTemp = this.state.produtos
+
+    return (
+
+      <div className="App">
+
+        <Filtro
+          inputBuscaPorNome={this.state.inputBuscaPorNome} // criado comando para passar por props em Filtro.js
+          inputValorMinimo={this.state.inputValorMinimo} // criado comando para passar por props em Filtro.js
+          inputValorMaximo={this.state.inputValorMaximo} // criado comando para passar por props em Filtro.js
+          onChangeFiltroNome={this.onChangeFiltroNome} // criado comando para passar por props em Filtro.js
+          onChangeFiltroMaximo={this.onChangeFiltroMaximo} // criado comando para passar por props em Filtro.js
+          onChangeFiltroMinimo={this.onChangeFiltroMinimo} // criado comando para passar por props em Filtro.js
+          onClickLimparFiltros={this.onClickLimparFiltros} // criado comando para passar por props em Filtro.js
+
+
+        />
+        <Produtos
+          produtos={this.state.produtos} // criado comando para passar por props em Produtos.js
+          inputBuscaPorNome={this.state.inputBuscaPorNome} // criado comando para passar por props em Produtos.js
+          inputValorMinimo={this.state.inputValorMinimo} // criado comando para passar por props em Produtos.js
+          inputValorMaximo={this.state.inputValorMaximo} // criado comando para passar por props em Produtos.js
+          seletorPreco={this.state.seletorPreco} // criado comando para passar por props em Produtos.js
+          onChangeSeletor={this.onChangeSeletor} // criado comando para passar por props em Produtos.js
+          altera={this.onClickAdicionar}
+        />
+
+        {console.log( this.state.produtos ) }
+
+        <Carrinho cart={cartTemp} altera={this.onClickAdicionar} remove={this.onClickRemover} />
+
+      </div>)
+>>>>>>> 8602a0d1ebd65c123e39900491014be95f9752f1
   }
 }
