@@ -13,14 +13,14 @@ export default class App extends React.Component {
 
   state = {
     produtos: [
-      { id: 1, nome: "Produto 1", preco: 100.00, imagemProduto: "https://picsum.photos/200/200?ramdon=1", quantidade: 5 },
-      { id: 2, nome: "Produto 2", preco: 200.00, imagemProduto: "https://picsum.photos/200/200?ramdon=2", quantidade: 3 },
-      { id: 3, nome: "Produto 3", preco: 3000.00, imagemProduto: "https://picsum.photos/200/200?ramdon=3", quantidade: 0 },
-      { id: 4, nome: "Produto 4", preco: 400.00, imagemProduto: "https://picsum.photos/200/200?ramdon=4", quantidade: 0 },
-      { id: 5, nome: "Produto 5", preco: 500.00, imagemProduto: "https://picsum.photos/200/200?ramdon=5", quantidade: 0 },
-      { id: 6, nome: "Produto 6", preco: 650.00, imagemProduto: "https://picsum.photos/200/200?ramdon=6", quantidade: 0 },
-      { id: 7, nome: "Produto 7", preco: 700.00, imagemProduto: "https://picsum.photos/200/200?ramdon=7", quantidade: 0 },
-      { id: 8, nome: "Produto 8", preco: 1000.00, imagemProduto: "https://picsum.photos/200/200?ramdon=8", quantidade: 0 }
+      { id: 1, nome: "Produto 1", preco: 199.99, imagemProduto: "https://picsum.photos/200/200?ramdon=1", quantidade: 5 },
+      { id: 2, nome: "Produto 2", preco: 2205.98, imagemProduto: "https://picsum.photos/200/200?ramdon=2", quantidade: 3 },
+      { id: 3, nome: "Produto 3", preco: 3999.99, imagemProduto: "https://picsum.photos/200/200?ramdon=3", quantidade: 0 },
+      { id: 4, nome: "Produto 4", preco: 410.51, imagemProduto: "https://picsum.photos/200/200?ramdon=4", quantidade: 0 },
+      { id: 5, nome: "Produto 5", preco: 50.95, imagemProduto: "https://picsum.photos/200/200?ramdon=5", quantidade: 0 },
+      { id: 6, nome: "Produto 6", preco: 659.77, imagemProduto: "https://picsum.photos/200/200?ramdon=6", quantidade: 0 },
+      { id: 7, nome: "Produto 7", preco: 730.89, imagemProduto: "https://picsum.photos/200/200?ramdon=7", quantidade: 0 },
+      { id: 8, nome: "Produto 8", preco: 10525.92, imagemProduto: "https://picsum.photos/200/200?ramdon=8", quantidade: 0 }
     ],
     inputValorMinimo: "",
     inputValorMaximo: "",

@@ -8,7 +8,11 @@ const DivProdutos = styled.div`
     width:100%;
     row-gap: 10px;
     column-gap: 10px;
-    margin-top: 16px;
+    margin-top: 8px;
+    
+    /* background-color: #fef8f2; */
+     /* background-color: #d5dadf; */
+    /* background-color: #abbacc; */
     
 `
 const Cards = styled.div`
@@ -28,7 +32,16 @@ const BoxSuperior = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-margin: 5px 15px;
+margin-left: 30px;
+margin-right: 30px;
+height: 1.5em;
+`
+
+const Prod = styled.div`
+display:flex;
+flex-direction: column;
+min-height: 100vh;
+margin-top: 16px;
 `
 
 export default class Produtos extends React.Component {
@@ -98,7 +111,7 @@ export default class Produtos extends React.Component {
         quantidadeListaDeProdutos = listaDeProdutos.length
 
         return (
-            <div>
+            <Prod>
                 <BoxSuperior>
                     <p>Quantidade de produtos: {quantidadeListaDeProdutos}</p>
 
@@ -112,11 +125,10 @@ export default class Produtos extends React.Component {
                     </select>
                 </BoxSuperior>
 
-                <div></div>
                 <DivProdutos>
                     {listaDeProdutos}
                 </DivProdutos>
-            </div>
+            </Prod>
         )
     }
 }
